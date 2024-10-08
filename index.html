@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="mx-auto w-2/3">
+    <header class="p-4 flex justify-center text-5xl font-semibold mb-4">
+        <h1 class="text-center">Guess the number</h1>
+    </header>
+    <div class="my-4 w-2/3 mx-auto">
+        <div class="flex justify-between">
+            <p>Between</p>
+            <p>To</p>
+        </div>
+        <div class="flex justify-between">
+            <p>1</p>
+            <p>?</p>
+            <p>100</p>
+        </div>
+    </div>
+    <div class="w-1/2 flex flex-wrap justify-between mx-auto mb-4">
+        <button>Submit</button>
+        <button>Replay</button>
+        <button>Cancel</button>
+    </div>
+    <div class="grid grid-cols-3 gap-4 w-1/2 mx-auto item mb-4">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="col-span-3">0</button>
+    </div>
+    <div class="flex justify-center">
+        <p>Trials left</p>
+    </div>
+</body>
+
+</html>
