@@ -16,6 +16,14 @@ const elements = {
   inputBtns: document.querySelector("#inputBtns"),
 };
 
+// Audio Files
+const audioFiles = {
+  clickNumbers: new Audio("audio/click-numbers.ogg"),
+  clickSubmitBtns: new Audio("audio/click-submit.ogg"),
+  win: new Audio("audio/win.ogg"),
+  between: new Audio("audio/between.ogg"),
+};
+
 // Game states
 const gameState = {
   randomNumber: Math.floor(
@@ -32,9 +40,11 @@ function enterGuess(event) {
 
   if (event.target.tagName === "BUTTON") {
     gameState.currentGuess += event.target.textContent;
+    const audioFile = audioFiles.clickNumbers;
 
     if (Number(gameState.currentGuess) <= CONFIG.maxRange) {
       elements.guessField.value = gameState.currentGuess;
+      playAudio(audioFile);
     } else {
       gameState.currentGuess = gameState.currentGuess.slice(0, -1);
     }
@@ -46,6 +56,7 @@ function checkGuess() {
   if (gameState.isGameOver || gameState.currentGuess === "") return;
 
   const guess = Number(gameState.currentGuess);
+  const audioFile = audioFiles.clickSubmitBtns;
   gameState.remainingGuesses--;
 
   if (guess === gameState.randomNumber) {
@@ -56,24 +67,30 @@ function checkGuess() {
     isLowOrHigh(guess);
   }
   clearGuesses();
+  playAudio(audioFile);
 }
 
 // User can clear their guess
 function clearGuesses() {
+  const audioFile = audioFiles.clickSubmitBtns;
   gameState.currentGuess = "";
   elements.guessField.value = "";
+  playAudio(audioFile);
 }
 
 function gameWin() {
+  const audioFile = audioFiles.win;
   setStatusMessage("You got it!!!", "text-green");
   elements.lowOrHigh.textContent = `You got it  in ${
     CONFIG.maxGuesses - gameState.remainingGuesses
   } tries!`;
+  playAudio(audioFile);
   endGame();
 }
 
 // LowOrHigh
 function isLowOrHigh(guess) {
+  const audioFile = audioFiles.between;
   const isLow = guess < gameState.randomNumber;
   const message = isLow
     ? "Your last guess was too low!"
@@ -83,6 +100,7 @@ function isLowOrHigh(guess) {
   const rangeElement = isLow ? minRange : maxRange;
   const startValue = Number(rangeElement.textContent);
   animateCounter(rangeElement, startValue, guess);
+  playAudio(audioFile);
 
   updateGuessCount();
   clearGuesses();
@@ -141,6 +159,11 @@ function animateCounter(element, start, end) {
       element.style.color = "";
     }
   }, stepDuration);
+}
+
+function playAudio(audio) {
+  console.log(`Play audio ${audio}`);
+  audio.play();
 }
 
 elements.inputBtns.addEventListener("click", enterGuess);
