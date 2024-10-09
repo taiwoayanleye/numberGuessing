@@ -2,7 +2,7 @@
 const CONFIG = {
   minRange: Number(document.querySelector("#minRange").textContent),
   maxRange: Number(document.querySelector("#maxRange").textContent),
-  maxGuesses: 10,
+  maxGuesses: 5,
 };
 
 // DOM Elements
