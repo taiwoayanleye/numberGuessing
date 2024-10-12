@@ -18,10 +18,10 @@ const elements = {
 
 // Audio Files
 const audioFiles = {
-  clickNumbers: new Audio("audio/click-numbers.ogg"),
-  clickSubmitBtns: new Audio("audio/click-submit.ogg"),
-  win: new Audio("audio/win.ogg"),
-  between: new Audio("audio/between.ogg"),
+  clickNumbers: new Audio("audio/click-numbers.mp3"),
+  clickSubmitBtns: new Audio("audio/click-submit.mp3"),
+  win: new Audio("audio/win.mp3"),
+  between: new Audio("audio/between.mp3"),
 };
 
 // Game states
