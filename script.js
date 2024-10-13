@@ -7,6 +7,9 @@ const CONFIG = {
 
 // DOM Elements
 const elements = {
+  splashScreen: document.querySelector("#splashScreen"),
+  gameScreen: document.querySelector("#gameScreen"),
+  difficultyBtns: document.querySelector("#difficultyBtns"),
   guessField: document.querySelector("#guessField"),
   submitBtn: document.querySelector("#submitBtn"),
   cancelBtn: document.querySelector("#cancelBtn"),
@@ -33,6 +36,14 @@ const gameState = {
   remainingGuesses: CONFIG.maxGuesses,
   isGameOver: false,
 };
+
+// Switch screens
+function switchScreens(event) {
+  if (event.target.tagName === "BUTTON") {
+    elements.splashScreen.classList.toggle("hidden");
+    elements.gameScreen.classList.toggle("hidden");
+  }
+}
 
 // User can enter their guess by click on the number buttons
 function enterGuess(event) {
@@ -166,6 +177,7 @@ function playAudio(audio) {
   audio.play();
 }
 
+elements.difficultyBtns.addEventListener("click", switchScreens);
 elements.inputBtns.addEventListener("click", enterGuess);
 elements.submitBtn.addEventListener("click", checkGuess);
 elements.cancelBtn.addEventListener("click", clearGuesses);
