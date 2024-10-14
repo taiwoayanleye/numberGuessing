@@ -8,22 +8,7 @@
         src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
 
     <script defer src="script.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        black: '#1E1E1E',
-                        gray: '#8D99AE',
-                        white: '#EDF2F4',
-                        green: '#23CE6B',
-                        yellow: '#EAC435',
-                        red: '#E40066',
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="tailwind.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -31,57 +16,59 @@
     <header class="p-4 flex justify-center font-semibold mb-6">
         <h1 class="text-center text-3xl md:text-5xl">Guess the number</h1>
     </header>
-    <div id="splashScreen" class="">
-        <div class="my-4 flex flex-col p-4 items-center" id="difficultyBtns">
-            <button
-                class="bg-gray my-4 px-4 py-2 text-2xl font-semibold w-1/2 md:w-1/3 hover:bg-white hover:text-black">Easy</button>
-            <button
-                class="bg-gray my-4 px-4 py-2 text-2xl font-semibold w-1/2 md:w-1/3 hover:bg-white hover:text-black">Medium</button>
-            <button
-                class="bg-gray my-4 px-4 py-2 text-2xl font-semibold w-1/2 md:w-1/3 hover:bg-white hover:text-black">Hard</button>
-        </div>
-    </div>
-    <div id="gameScreen" class="hidden">
-        <div class="my-4 md:w-2/3 mx-auto px-4">
-            <div class="flex justify-between items-center text-xl md:text-2xl mb-4">
-                <p class="text-center px-4">Between</p>
-                <p class="text-center px-4">And</p>
-            </div>
-            <div class="flex justify-between text-2xl md:text-3xl font-bold items-center">
-                <p class="text-center px-4 " id="minRange">1</p>
-                <input type="number" max="100" min="0" required value="" readonly
-                    class="rounded px-4 text-center bg-gray text-2xl md:text-3xl" id="guessField">
-                <p class="px-4" id="maxRange">100</p>
+    <main class="">
+        <div id="splashScreen" class="">
+            <div class="my-4 flex flex-col p-4 items-center" id="difficultyBtns">
+                <button
+                    class="bg-gray my-4 px-4 py-2 text-2xl font-semibold w-1/2 md:w-1/3 hover:bg-white hover:text-black">Easy</button>
+                <button
+                    class="bg-gray my-4 px-4 py-2 text-2xl font-semibold w-1/2 md:w-1/3 hover:bg-white hover:text-black">Medium</button>
+                <button
+                    class="bg-gray my-4 px-4 py-2 text-2xl font-semibold w-1/2 md:w-1/3 hover:bg-white hover:text-black">Hard</button>
             </div>
         </div>
+        <div id="gameScreen" class="hidden">
+            <div class="my-4 md:w-2/3 mx-auto px-4">
+                <div class="flex justify-between items-center text-xl md:text-2xl mb-4">
+                    <p class="text-center px-4">Between</p>
+                    <p class="text-center px-4">And</p>
+                </div>
+                <div class="flex justify-between text-2xl md:text-3xl font-bold items-center">
+                    <p class="text-center px-4 " id="minRange">1</p>
+                    <input type="number" max="100" min="0" required value="" readonly
+                        class="rounded px-4 text-center bg-gray text-2xl md:text-3xl" id="guessField">
+                    <p class="px-4" id="maxRange">100</p>
+                </div>
+            </div>
 
-        <div class="grid grid-cols-3 gap-4 md:w-2/3 mx-auto mb-4 px-4" id="inputBtns">
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">1</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">2</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">3</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">4</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">5</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">6</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">7</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">8</button>
-            <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">9</button>
-            <button
-                class="col-span-3 bg-gray hover:bg-white hover:text-black font-semibold py-2 px-4 rounded">0</button>
+            <div class="grid grid-cols-3 gap-4 md:w-2/3 mx-auto mb-4 px-4" id="inputBtns">
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">1</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">2</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">3</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">4</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">5</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">6</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">7</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">8</button>
+                <button class="bg-gray hover:bg-white hover:text-black font-semibold py-2 rounded">9</button>
+                <button
+                    class="col-span-3 bg-gray hover:bg-white hover:text-black font-semibold py-2 px-4 rounded">0</button>
+            </div>
+            <div class="w-1/2 grid mx-auto mb-4">
+                <button class="bg-white text-black hover:bg-gray hover:text-white font-semibold py-2 px-4 rounded my-2"
+                    id="submitBtn">Submit</button>
+                <button
+                    class="bg-white text-black hover:bg-gray hover:text-white font-semibold py-2 px-4 rounded my-2 hidden"
+                    id="restartBtn">Replay</button>
+                <button class="bg-white text-black hover:bg-gray hover:text-white font-semibold py-2 px-4 rounded my-2"
+                    id="cancelBtn">Cancel</button>
+            </div>
+            <div class="flex flex-col justify-center items-center mx-auto">
+                <p class="text-2xl text-yellow" id="statusMsg"></p>
+                <p id="lowOrHigh"></p>
+            </div>
         </div>
-        <div class="w-1/2 grid mx-auto mb-4">
-            <button class="bg-white text-black hover:bg-gray hover:text-white font-semibold py-2 px-4 rounded my-2"
-                id="submitBtn">Submit</button>
-            <button
-                class="bg-white text-black hover:bg-gray hover:text-white font-semibold py-2 px-4 rounded my-2 hidden"
-                id="restartBtn">Replay</button>
-            <button class="bg-white text-black hover:bg-gray hover:text-white font-semibold py-2 px-4 rounded my-2"
-                id="cancelBtn">Cancel</button>
-        </div>
-        <div class="flex flex-col justify-center items-center mx-auto">
-            <p class="text-2xl text-yellow" id="statusMsg"></p>
-            <p id="lowOrHigh"></p>
-        </div>
-    </div>
+    </main>
 </body>
 
 </html>
